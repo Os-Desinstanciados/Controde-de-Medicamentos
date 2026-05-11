@@ -1,5 +1,5 @@
 using ControleDeMedicamentos.ConsoleApp.Compartilhado;
-using ControleDeMedicamentos.ConsoleApp.ModuloPacientes;
+// using ControleDeMedicamentos.ConsoleApp.ModuloPacientes;
 using ControleDeMedicamentos.ConsoleApp.ModuloFornecedores;
 
 namespace ControleDeMedicamentos.ConsoleApp.Utilidades;
@@ -8,11 +8,12 @@ public class TelaPrincipal
 {
   private readonly IRepositorio<Fornecedor> repositorioFornecedor;
 
-  private readonly IRepositorio<Paciente> repositorioPaciente;
+  //private readonly IRepositorio<Paciente> repositorioPaciente;
 
-  public TelaPrincipal(IRepositorio<Paciente> repositorioPaciente, IRepositorio<Fornecedor> repositorioFornecedor)
+  public TelaPrincipal(//IRepositorio<Paciente> repositorioPaciente,
+   IRepositorio<Fornecedor> repositorioFornecedor)
   {
-    this.repositorioPaciente = repositorioPaciente;
+    //this.repositorioPaciente = repositorioPaciente;
     this.repositorioFornecedor = repositorioFornecedor;
   }
 
@@ -29,8 +30,8 @@ public class TelaPrincipal
         Console.Write("> ");
         string? opcaoMenuPrincipal = Console.ReadLine()?.ToUpper();
 
-        if (opcaoMenuPrincipal == "1")
-            return new TelaPaciente(repositorioPaciente);              
+        // if (opcaoMenuPrincipal == "1")
+        //     return new TelaPaciente(repositorioPaciente);              
 
         if (opcaoMenuPrincipal == "2")
             return new TelaFornecedor(repositorioFornecedor);
