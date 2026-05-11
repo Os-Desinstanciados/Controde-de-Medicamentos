@@ -8,8 +8,9 @@ public class TelaMedicamento : TelaBase<Medicamento>, ITelaOpcoes, ITelaCrud
 {
     private readonly RepositorioFornecedorEmArquivo repositorioFornecedor;
     public TelaMedicamento(IRepositorio<Medicamento> repositorio,
-    IRepositorio<Fornecedor> repositorioFornecedor) : base("Medicamento", repositorio)
-    {        
+    RepositorioFornecedorEmArquivo repositorioFornecedor) : base("Medicamento", repositorio)
+    {
+        this.repositorioFornecedor = repositorioFornecedor; 
     }
 
     public override void VisualizarTodos(bool deveExibirCabecalho)
