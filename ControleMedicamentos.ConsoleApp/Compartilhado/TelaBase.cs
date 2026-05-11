@@ -17,7 +17,7 @@ public abstract class TelaBase<T> where T : EntidadeBase
     {
         string nomeMinusculo = nomeEntidade.ToLower();
 
-        Console.Clear();
+        //Console.Clear();
         Console.WriteLine("---------------------------------");
         Console.WriteLine($"Gestão de {nomeEntidade}");
         Console.WriteLine("---------------------------------");
@@ -42,6 +42,8 @@ public abstract class TelaBase<T> where T : EntidadeBase
             T novaEntidade = ObterDadosCadastrais();
 
             List<string> erros = novaEntidade.Validar();
+
+            
 
             if (erros.Count > 0)
             {
@@ -196,7 +198,7 @@ public abstract class TelaBase<T> where T : EntidadeBase
 
     protected void ExibirCabecalho(string titulo)
     {
-        Console.Clear();
+        //Console.Clear();
         Console.WriteLine("---------------------------------");
         Console.WriteLine($"Gestão de {nomeEntidade}");
         Console.WriteLine("---------------------------------");

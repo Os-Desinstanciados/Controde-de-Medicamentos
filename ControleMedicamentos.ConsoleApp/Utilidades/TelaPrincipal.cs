@@ -18,7 +18,7 @@ public class TelaPrincipal
 
   public ITelaOpcoes? ApresentarMenuOpcoesPrincipal()
     {
-        Console.Clear();
+        //Console.Clear();
         Console.WriteLine("---------------------------------");
         Console.WriteLine("Controle de Medicamentos");
         Console.WriteLine("---------------------------------");
