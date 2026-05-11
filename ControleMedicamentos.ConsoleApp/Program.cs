@@ -20,10 +20,7 @@ catch (JsonException)
 IRepositorio<Paciente> repositorioPaciente = new RepositorioPacienteEmArquivo(contexto);
 IRepositorio<Fornecedor> repositorioFornecedor = new RepositorioFornecedorEmArquivo(contexto);
 
-TelaPrincipal telaPrincipal = new TelaPrincipal(
-    repositorioPaciente,
-    repositorioFornecedor    
-);
+TelaPrincipal telaPrincipal = new TelaPrincipal(repositorioPaciente, repositorioFornecedor);
 
 while (true)
 {
