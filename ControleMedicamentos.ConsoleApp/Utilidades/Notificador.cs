@@ -1,4 +1,4 @@
-namespace ControleDeMedicamentos.ConsoleApp.Utilidades;
+namespace ControleMedicamentos.ConsoleApp.Utilidades;
 
 public static class Notificador
 {

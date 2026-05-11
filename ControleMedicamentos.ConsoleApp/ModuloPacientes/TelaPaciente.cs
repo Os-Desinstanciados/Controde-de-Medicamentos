@@ -1,8 +1,8 @@
 using System;
-using ControleDeMedicamentos.ConsoleApp.Compartilhado;
-using ControleDeMedicamentos.ConsoleApp.Utilidades;
+using ControleMedicamentos.ConsoleApp.Compartilhado;
+using ControleMedicamentos.ConsoleApp.Utilidades;
 
-namespace ControleDeMedicamentos.ConsoleApp.ModuloPacientes;
+namespace ControleMedicamentos.ConsoleApp.ModuloPacientes;
 
 public class TelaPaciente : TelaBase<Paciente>, ITelaCrud, ITelaOpcoes
 {

@@ -1,8 +1,6 @@
-using System;
-using System.Formats.Asn1;
-using ControleDeMedicamentos.ConsoleApp.Compartilhado;
+using ControleMedicamentos.ConsoleApp.Compartilhado;
 
-namespace ControleDeMedicamentos.ConsoleApp.ModuloPacientes;
+namespace ControleMedicamentos.ConsoleApp.ModuloPacientes;
 
 public class Paciente : EntidadeBase
 {
