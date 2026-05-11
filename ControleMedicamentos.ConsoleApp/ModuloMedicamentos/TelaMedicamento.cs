@@ -6,11 +6,11 @@ namespace ControleMedicamentos.ConsoleApp.ModuloMedicamentos;
 
 public class TelaMedicamento : TelaBase<Medicamento>, ITelaOpcoes, ITelaCrud
 {
-    private readonly RepositorioFornecedorEmArquivo repositorioFornecedor;
+    private readonly IRepositorio<Fornecedor> repositorioFornecedor;
     public TelaMedicamento(IRepositorio<Medicamento> repositorio,
-    RepositorioFornecedorEmArquivo repositorioFornecedor) : base("Medicamento", repositorio)
+    IRepositorio<Fornecedor> repositorioFornecedor) : base("Medicamento", repositorio)
     {
-        this.repositorioFornecedor = repositorioFornecedor; 
+        this.repositorioFornecedor = repositorioFornecedor;
     }
 
     public override void VisualizarTodos(bool deveExibirCabecalho)
@@ -33,7 +33,7 @@ public class TelaMedicamento : TelaBase<Medicamento>, ITelaOpcoes, ITelaCrud
 
         Console.WriteLine(
             "{0, -7} | {1, -20} | {2, -20} | {3, -20} | {4, -20}",
-            "Id", "Nome", "Descrição", "Qtd. no Estoque", "Forncedor"
+            "Id", "Nome", "Descrição", "Qtd. no Estoque", "Fornecedor"
         );
 
         foreach (Medicamento m in medicamentos)
