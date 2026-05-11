@@ -1,4 +1,4 @@
-namespace ControleDeMedicamentos.ConsoleApp.Compartilhado.Memoria;
+namespace ControleMedicamentos.ConsoleApp.Compartilhado.Memoria;
 
 public abstract class RepositorioBaseEmMemoria<T> where T : EntidadeBase
 {
