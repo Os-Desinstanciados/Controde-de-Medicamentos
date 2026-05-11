@@ -1,9 +1,9 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
-//using ControleDeMedicamentos.ConsoleApp.ModuloPacientes;
-using ControleDeMedicamentos.ConsoleApp.ModuloFornecedores;
+//using ControleMedicamentos.ConsoleApp.ModuloPacientes;
+using ControleMedicamentos.ConsoleApp.ModuloFornecedores;
 
-namespace ControleDeMedicamentos.ConsoleApp.Compartilhado.Arquivos;
+namespace ControleMedicamentos.ConsoleApp.Compartilhado.Arquivos;
 
 public class ContextoJson
 {

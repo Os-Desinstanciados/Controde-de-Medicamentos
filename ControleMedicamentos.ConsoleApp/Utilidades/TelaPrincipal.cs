@@ -1,8 +1,8 @@
-using ControleDeMedicamentos.ConsoleApp.Compartilhado;
-// using ControleDeMedicamentos.ConsoleApp.ModuloPacientes;
-using ControleDeMedicamentos.ConsoleApp.ModuloFornecedores;
+using ControleMedicamentos.ConsoleApp.Compartilhado;
+// using ControleMedicamentos.ConsoleApp.ModuloPacientes;
+using ControleMedicamentos.ConsoleApp.ModuloFornecedores;
 
-namespace ControleDeMedicamentos.ConsoleApp.Utilidades;
+namespace ControleMedicamentos.ConsoleApp.Utilidades;
 
 public class TelaPrincipal
 {
