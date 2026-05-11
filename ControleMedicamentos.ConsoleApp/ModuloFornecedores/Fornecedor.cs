@@ -1,6 +1,6 @@
-using ControleDeMedicamentos.ConsoleApp.Compartilhado;
+using ControleMedicamentos.ConsoleApp.Compartilhado;
 
-namespace ControleDeMedicamentos.ConsoleApp.ModuloFornecedores;
+namespace ControleMedicamentos.ConsoleApp.ModuloFornecedores;
 
 public class Fornecedor : EntidadeBase
 {

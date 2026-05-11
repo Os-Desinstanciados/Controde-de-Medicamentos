@@ -1,6 +1,6 @@
 using System.Security.Cryptography;
 
-namespace ControleDeMedicamentos.ConsoleApp.Compartilhado;
+namespace ControleMedicamentos.ConsoleApp.Compartilhado;
 
 public abstract class EntidadeBase
 {
