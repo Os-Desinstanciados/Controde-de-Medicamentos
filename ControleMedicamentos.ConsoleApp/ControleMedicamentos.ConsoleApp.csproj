@@ -8,7 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="ModuloPacientes\" />
     <Folder Include="ModuloFuncionarios\" />
+    <Folder Include="ModuloFornecedores\" />
+    <Folder Include="ModuloMedicamentos\" />
+    
   </ItemGroup>
 
 </Project>
