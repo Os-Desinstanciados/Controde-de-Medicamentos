@@ -31,7 +31,6 @@ public class TelaPrincipal
         Console.WriteLine("2 - Gestão de Fornecedores");
 
         Console.WriteLine("4 - Gestão de Funcionarios");
-        Console.WriteLine("5 - Gestão de Estoque");
         Console.WriteLine("S - Sair");
         Console.WriteLine("---------------------------------");
         Console.Write("> ");
@@ -47,9 +46,6 @@ public class TelaPrincipal
         
 
         if (opcaoMenuPrincipal == "4")
-            return new TelaFuncionario(repositorioFuncionario);
-
-        if (opcaoMenuPrincipal == "5")
             return new TelaFuncionario(repositorioFuncionario);
 
         return null;
