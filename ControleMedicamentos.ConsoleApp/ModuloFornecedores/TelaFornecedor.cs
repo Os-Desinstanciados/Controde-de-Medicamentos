@@ -61,4 +61,25 @@ public class TelaFornecedor : TelaBase<Fornecedor>, ITelaOpcoes, ITelaCrud
 
         return new Fornecedor(nome, telefone, cnpj);
     }
+
+    protected override List<string> ValidarRegistroDuplicado(
+        Fornecedor novaEntidade,
+        string? idIgnorado = null
+    )
+    {
+        List<string> erros = new List<string>();
+
+        List<Fornecedor> fornecedores = repositorio.SelecionarTodos();
+
+        foreach (Fornecedor f in fornecedores)
+        {
+            if (f.Id != idIgnorado && f.Cnpj == novaEntidade.Cnpj)
+            {               
+                erros.Add($"Já existe um fornecedor com o CNPJ \"{novaEntidade.Cnpj}\"");
+                break;                
+            }
+        }
+
+        return erros;
+    }
 }
