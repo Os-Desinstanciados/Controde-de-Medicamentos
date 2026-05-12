@@ -1,7 +1,6 @@
 using System;
 using ControleMedicamentos.ConsoleApp.Compartilhado;
 using ControleMedicamentos.ConsoleApp.Utilidades;
-using Microsoft.VisualBasic;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloPacientes;
 
