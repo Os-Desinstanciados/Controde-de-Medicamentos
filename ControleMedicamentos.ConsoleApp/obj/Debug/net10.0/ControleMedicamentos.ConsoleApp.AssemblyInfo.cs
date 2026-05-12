@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ControleMedicamentos.ConsoleApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1bc9b4f8b6aa2de902f6f782da946c1e80296ff5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c0b38795d3bd3717bb0583bbf469e9b4eda9d4a4")]
 [assembly: System.Reflection.AssemblyProductAttribute("ControleMedicamentos.ConsoleApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ControleMedicamentos.ConsoleApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
