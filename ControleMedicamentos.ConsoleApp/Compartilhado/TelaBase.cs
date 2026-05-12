@@ -51,19 +51,20 @@ public abstract class TelaBase<T> where T : EntidadeBase
                 return;
             }
 
-            List<string> errosDuplicacao = ValidarRegistroDuplicado(novaEntidade);
+            List<string> mensagemDuplicacao = ValidarRegistroDuplicado(novaEntidade);
 
-            if (errosDuplicacao.Count > 0)
+            if (mensagemDuplicacao.Count > 0)
             {
-                Notificador.ExibirMensagensErro(errosDuplicacao);
+                Notificador.ExibirMensagensErro(mensagemDuplicacao);                
+            }
+            else
+            {
+                repositorio.Cadastrar(novaEntidade);
 
-                Cadastrar();
-                return;
+                Notificador.ExibirMensagem($"O registro \"{novaEntidade.Id}\" foi cadastrado com sucesso!");
             }
 
-            repositorio.Cadastrar(novaEntidade);
-
-            Notificador.ExibirMensagem($"O registro \"{novaEntidade.Id}\" foi cadastrado com sucesso!");
+            
         }
         catch (FormatException)
         {
@@ -212,7 +213,7 @@ public abstract class TelaBase<T> where T : EntidadeBase
     protected virtual List<string> ValidarExclusaoRegistro(T registro)
     {
         return new List<string>();
-    }
+    }    
 
     protected abstract T ObterDadosCadastrais();
 }

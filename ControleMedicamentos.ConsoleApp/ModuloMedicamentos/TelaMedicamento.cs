@@ -116,4 +116,27 @@ public class TelaMedicamento : TelaBase<Medicamento>, ITelaOpcoes, ITelaCrud
         return idSelecionado;
     }
 
+    protected override List<string> ValidarRegistroDuplicado(
+        Medicamento novaEntidade,
+        string? idIgnorado = null
+    )
+    {
+        List<string> mensagem = new List<string>();
+
+        List<Medicamento> medicamentos = repositorio.SelecionarTodos();
+
+        foreach (Medicamento m in medicamentos)
+        {
+            if (m.Id != idIgnorado && m.Nome == novaEntidade.Nome)
+            {
+                m.QuantidadeEstoque += novaEntidade.QuantidadeEstoque;
+                mensagem.Add($"Já existe o medicamento \"{novaEntidade.Nome}\". O mesmo foi adicionado ao estoque");
+                    break;
+            }
+                
+        }
+
+        return mensagem;
+    }
+
 }
