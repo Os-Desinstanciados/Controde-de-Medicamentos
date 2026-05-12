@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using ControleMedicamentos.ConsoleApp.Compartilhado;
 using ControleMedicamentos.ConsoleApp.ModuloFornecedores;
 
@@ -20,6 +21,7 @@ public class TelaMedicamento : TelaBase<Medicamento>, ITelaOpcoes, ITelaCrud
 
         List<Medicamento> medicamentos = repositorio.SelecionarTodos();
 
+        
         if (medicamentos.Count == 0)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -37,10 +39,15 @@ public class TelaMedicamento : TelaBase<Medicamento>, ITelaOpcoes, ITelaCrud
         );
 
         foreach (Medicamento m in medicamentos)
-        {            
+        {   
+            string quantidadeExibicao = m.QuantidadeEstoque.ToString();
+
+            if (m.QuantidadeEstoque < 20)
+                quantidadeExibicao += " (em falta)";
+
             Console.WriteLine(
                 "{0, -7} | {1, -20} | {2, -20} | {3, -20} | {4, -20}",
-                m.Id, m.Nome, m.Descricao, m.QuantidadeEstoque, m.Fornecedor.Nome
+                m.Id, m.Nome, m.Descricao, quantidadeExibicao, m.Fornecedor.Nome
             );
         }
 

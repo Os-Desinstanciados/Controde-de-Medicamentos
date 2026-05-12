@@ -14,7 +14,7 @@ public class ContextoJson
 
     public List<Fornecedor> Fornecedores { get; set; } = new List<Fornecedor>();
 
-    public List<Medicamento> Medicamentos { get; set;} = new List<Medicamento>();
+    public List<Medicamento> Medicamentos { get; set; } = new List<Medicamento>();
 
     public ContextoJson()
     {
@@ -58,5 +58,6 @@ public class ContextoJson
         //this.Pacientes = contextoSalvo.Pacientes;
 
         this.Fornecedores = contextoSalvo.Fornecedores;
+        this.Medicamentos = contextoSalvo.Medicamentos;
     }
 }

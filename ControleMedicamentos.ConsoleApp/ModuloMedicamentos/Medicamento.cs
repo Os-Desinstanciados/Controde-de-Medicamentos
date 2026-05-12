@@ -10,8 +10,12 @@ public class Medicamento : EntidadeBase
     public string Descricao { get; set; } = string.Empty;
     public int QuantidadeEstoque { get; set; } = 0;
 
-    public Fornecedor Fornecedor { get; set; }
+    public Fornecedor Fornecedor { get; set; } = null!;
 
+  public Medicamento()
+    {
+    }
+    
     public Medicamento(string nome, string descricao, int quantidadeEstoque, Fornecedor fornecedor)
     {
         Nome = nome;
