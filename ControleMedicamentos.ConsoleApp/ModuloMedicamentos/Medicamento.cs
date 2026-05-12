@@ -16,7 +16,7 @@ public class Medicamento : EntidadeBase
     {
     }
     
-    public Medicamento(string nome, string descricao, int quantidadeEstoque, Fornecedor fornecedor)
+    public Medicamento(string nome, string descricao, int quantidadeEstoque, Fornecedor fornecedor) : this()
     {
         Nome = nome;
         Descricao = descricao;
