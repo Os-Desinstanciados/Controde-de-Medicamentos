@@ -1,29 +1,36 @@
-using ControleDeMedicamentos.ConsoleApp.Compartilhado;
-using ControleDeMedicamentos.ConsoleApp.ModuloPacientes;
-using ControleDeMedicamentos.ConsoleApp.ModuloFornecedores;
+using ControleMedicamentos.ConsoleApp.Compartilhado;
+using ControleMedicamentos.ConsoleApp.ModuloPacientes;
+using ControleMedicamentos.ConsoleApp.ModuloFornecedores;
+using ControleMedicamentos.ConsoleApp.ModuloFuncionarios;
 
-namespace ControleDeMedicamentos.ConsoleApp.Utilidades;
+namespace ControleMedicamentos.ConsoleApp.Utilidades;
 
 public class TelaPrincipal
 {
   private readonly IRepositorio<Fornecedor> repositorioFornecedor;
-
   private readonly IRepositorio<Paciente> repositorioPaciente;
+  private readonly IRepositorio<Funcionario> repositorioFuncionario;
 
-  public TelaPrincipal(IRepositorio<Paciente> repositorioPaciente, IRepositorio<Fornecedor> repositorioFornecedor)
+  public TelaPrincipal(
+    IRepositorio<Paciente> repositorioPaciente,
+    IRepositorio<Fornecedor> repositorioFornecedor,
+    IRepositorio<Funcionario> repositorioFuncionario)
   {
     this.repositorioPaciente = repositorioPaciente;
     this.repositorioFornecedor = repositorioFornecedor;
+    this.repositorioFuncionario = repositorioFuncionario;
   }
 
   public ITelaOpcoes? ApresentarMenuOpcoesPrincipal()
     {
-        Console.Clear();
+        //Console.Clear();
         Console.WriteLine("---------------------------------");
         Console.WriteLine("Controle de Medicamentos");
         Console.WriteLine("---------------------------------");
         Console.WriteLine("1 - Gerenciar Pacientes");
         Console.WriteLine("2 - Gestão de Fornecedores");
+
+        Console.WriteLine("4 - Gestão de Funcionarios");
         Console.WriteLine("S - Sair");
         Console.WriteLine("---------------------------------");
         Console.Write("> ");
@@ -34,6 +41,12 @@ public class TelaPrincipal
 
         if (opcaoMenuPrincipal == "2")
             return new TelaFornecedor(repositorioFornecedor);
+
+        
+        
+
+        if (opcaoMenuPrincipal == "4")
+            return new TelaFuncionario(repositorioFuncionario);
 
         return null;
     }

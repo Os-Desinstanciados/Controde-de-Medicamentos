@@ -1,8 +1,8 @@
 using System;
-using ControleDeMedicamentos.ConsoleApp.Compartilhado;
-using ControleDeMedicamentos.ConsoleApp.Utilidades;
+using ControleMedicamentos.ConsoleApp.Compartilhado;
+using ControleMedicamentos.ConsoleApp.Utilidades;
 
-namespace ControleDeMedicamentos.ConsoleApp.ModuloPacientes;
+namespace ControleMedicamentos.ConsoleApp.ModuloPacientes;
 
 public class TelaPaciente : TelaBase<Paciente>, ITelaCrud, ITelaOpcoes
 {
@@ -60,5 +60,20 @@ public class TelaPaciente : TelaBase<Paciente>, ITelaCrud, ITelaOpcoes
 
     return new Paciente(nome, telefone, cartaoSus, cpf);
 
+  }
+
+  protected override List<string> ValidarRegistroDuplicado(Paciente novaEntidade, string? idIgnorado = null)
+  {
+    List<string> errosDuplicacao = new List<string>();
+
+    List<Paciente> registros = repositorio.SelecionarTodos();
+
+    foreach (Paciente p in registros)
+    {
+      if (p.Id != idIgnorado && p.CartaoSUS == novaEntidade.CartaoSUS)
+        errosDuplicacao.Add("Já existe um registro com o cartao SUS informado.");
+    }
+
+    return errosDuplicacao;
   }
 }
