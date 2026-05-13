@@ -1,11 +1,12 @@
 ﻿using System.Text.Json;
-using ControleDeMedicamentos.ConsoleApp.Compartilhado;
-using ControleDeMedicamentos.ConsoleApp.Compartilhado.Arquivos;
-using ControleDeMedicamentos.ConsoleApp.ModuloPacientes;
-using ControleDeMedicamentos.ConsoleApp.ModuloFornecedores;
+using ControleMedicamentos.ConsoleApp.Compartilhado;
+using ControleMedicamentos.ConsoleApp.Compartilhado.Arquivos;
+using ControleMedicamentos.ConsoleApp.ModuloPacientes;
+using ControleMedicamentos.ConsoleApp.ModuloFornecedores;
+using ControleMedicamentos.ConsoleApp.Utilidades;
 using ControleMedicamentos.ConsoleApp.ModuloMedicamentos;
 using ControleMedicamentos.ConsoleApp.ModuloFuncionarios;
-using ControleDeMedicamentos.ConsoleApp.Utilidades;
+using ControleMedicamentos.ConsoleApp.ModuloEstoque;
 
 ContextoJson contexto = new ContextoJson();
 
@@ -23,12 +24,14 @@ IRepositorio<Paciente> repositorioPaciente = new RepositorioPacienteEmArquivo(co
 IRepositorio<Fornecedor> repositorioFornecedor = new RepositorioFornecedorEmArquivo(contexto);
 IRepositorio<Medicamento> repositorioMedicamento = new RepositorioMedicamentoEmArquivo(contexto);
 IRepositorio<Funcionario> repositorioFuncionario = new RepositorioFuncionarioEmArquivo(contexto);
+IRepositorioRequisicao repositorioRequisicao = new RepositorioRequisicaoEmArquivo(contexto);
 
 TelaPrincipal telaPrincipal = new TelaPrincipal(
     repositorioPaciente,
     repositorioFornecedor,
     repositorioMedicamento,
-    repositorioFuncionario    
+    repositorioFuncionario,
+    repositorioRequisicao
 );
 
 while (true)
@@ -64,6 +67,21 @@ while (true)
 
             else if (opcaoSubMenu == "4")
                 telaCrud.VisualizarTodos(deveExibirCabecalho: true);
+        }
+
+        else if (telaSelecionada is TelaRequisicao telaRequisicao)
+        {
+            if (opcaoSubMenu == "1")
+                telaRequisicao.CadastrarRequisicaoEntrada();
+
+            else if (opcaoSubMenu == "2")
+                telaRequisicao.VisualizarRequisicoesEntrada();
+
+            else if (opcaoSubMenu == "3")
+                telaRequisicao.CadastrarRequisicaoSaida();
+
+            else if (opcaoSubMenu == "4")
+                telaRequisicao.VisualizarRequisicoesSaida();
         }
     }
 }
