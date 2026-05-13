@@ -1,5 +1,6 @@
 using System;
 using ControleMedicamentos.ConsoleApp.Compartilhado;
+using ControleMedicamentos.ConsoleApp.ModuloEstoque;
 using ControleMedicamentos.ConsoleApp.ModuloFornecedores;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloMedicamentos;
@@ -8,21 +9,47 @@ public class Medicamento : EntidadeBase
 {
     public string Nome { get; set; } = string.Empty;
     public string Descricao { get; set; } = string.Empty;
-    public int QuantidadeEstoque { get; set; } = 0;
-
+    
     public Fornecedor Fornecedor { get; set; } = null!;
+    public List<RequisicaoBase> Requisicoes { get; set; } = new List<RequisicaoBase>();
+    public uint QuantidadeEstoque
+    {
+        get
+        {
+            uint quantidadeEstoque = 0;
+
+            foreach (RequisicaoBase req in Requisicoes)
+            {
+                if (req is RequisicaoSaida reqSaida)
+                {
+                    foreach (MedicamentoPrescrito medPresc in reqSaida.MedicamentosPrescritos)
+                    {
+                        if (medPresc.Medicamento == this)
+                            quantidadeEstoque -= medPresc.Quantidade;
+                    }
+                }
+            }
+
+            return quantidadeEstoque;
+        }
+       
+    }
 
   public Medicamento()
     {
     }
     
-    public Medicamento(string nome, string descricao, int quantidadeEstoque, Fornecedor fornecedor) : this()
+    public Medicamento(string nome, string descricao, Fornecedor fornecedor) : this()
     {
         Nome = nome;
-        Descricao = descricao;
-        QuantidadeEstoque = quantidadeEstoque;
+        Descricao = descricao;        
         Fornecedor = fornecedor;
     }
+
+    public void RegistrarRequisicao(RequisicaoBase requisicao)
+    {
+        Requisicoes.Add(requisicao);
+    }    
         
     public override List<string> Validar()
     {
@@ -59,8 +86,7 @@ public class Medicamento : EntidadeBase
         Medicamento medicamentoAtualizado = (Medicamento)entidadeAtualizada;
 
         Nome = medicamentoAtualizado.Nome;
-        Descricao = medicamentoAtualizado.Descricao;
-        QuantidadeEstoque = medicamentoAtualizado.QuantidadeEstoque;
+        Descricao = medicamentoAtualizado.Descricao;        
         Fornecedor = medicamentoAtualizado.Fornecedor;
         
     }

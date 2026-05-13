@@ -16,5 +16,8 @@ public class RequisicaoSaida : RequisicaoBase
     {
         Paciente = paciente;
         MedicamentosPrescritos = medicamentosPrescritos;
+
+        foreach (MedicamentoPrescrito medPresc in MedicamentosPrescritos)
+            medPresc.Medicamento.RegistrarRequisicao(this);
     }
 }

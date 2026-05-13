@@ -66,16 +66,13 @@ public class TelaMedicamento : TelaBase<Medicamento>, ITelaOpcoes, ITelaCrud
         string nome = Console.ReadLine() ?? string.Empty;          
 
         Console.Write("Digite a descrição do medicamento: ");
-        string descricao = Console.ReadLine() ?? string.Empty;
-
-        Console.Write("Digite a quantidade de medicamentos: ");
-        int quantidadeEstoque = Convert.ToInt32(Console.ReadLine());
+        string descricao = Console.ReadLine() ?? string.Empty;        
 
         string idSelecionado = SelecionarFornecedor();
 
         Fornecedor? fornecedorSelecionado = repositorioFornecedor.SelecionarPorId(idSelecionado);
 
-        return new Medicamento(nome, descricao, quantidadeEstoque, fornecedorSelecionado);
+        return new Medicamento(nome, descricao, fornecedorSelecionado);
     }
 
     private string SelecionarFornecedor()
@@ -114,29 +111,6 @@ public class TelaMedicamento : TelaBase<Medicamento>, ITelaOpcoes, ITelaCrud
         } while (true);
 
         return idSelecionado;
-    }
-
-    protected override List<string> ValidarRegistroDuplicado(
-        Medicamento novaEntidade,
-        string? idIgnorado = null
-    )
-    {
-        List<string> mensagem = new List<string>();
-
-        List<Medicamento> medicamentos = repositorio.SelecionarTodos();
-
-        foreach (Medicamento m in medicamentos)
-        {
-            if (m.Id != idIgnorado && m.Nome == novaEntidade.Nome)
-            {
-                m.QuantidadeEstoque += novaEntidade.QuantidadeEstoque;
-                mensagem.Add($"Já existe o medicamento \"{novaEntidade.Nome}\". O mesmo foi adicionado ao estoque");
-                    break;
-            }
-                
-        }
-
-        return mensagem;
-    }
+    }    
 
 }
