@@ -4,12 +4,6 @@ using ControleMedicamentos.ConsoleApp.Compartilhado.Arquivos;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloEstoque;
 
-public interface IRepositorioRequisicao
-{
-    void Cadastrar(RequisicaoBase requisicao);
-    
-}
-
 
 
 public class RepositorioRequisicaoEmArquivo : IRepositorioRequisicao
@@ -29,5 +23,18 @@ public class RepositorioRequisicaoEmArquivo : IRepositorioRequisicao
         registros.Add(requisicao);
 
         contexto.Salvar();
+    }
+
+    public List<RequisicaoSaida> SelecionarRequisicoesSaida()
+    {
+        List<RequisicaoSaida> requisicoesSaida = new List<RequisicaoSaida>();
+
+        foreach (RequisicaoBase req in registros)
+        {
+            if (req is RequisicaoSaida reqSaida)
+                requisicoesSaida.Add(reqSaida);
+        }
+
+        return requisicoesSaida;
     }
 }
