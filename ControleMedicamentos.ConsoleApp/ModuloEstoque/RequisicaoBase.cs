@@ -1,13 +1,12 @@
 using System.Text.Json.Serialization;
-using ControleMedicamentos.ConsoleApp.ModuloEstoque;
-using ControleMedicamentos.ConsoleApp.ModuloFuncionarios;
-using ControleMedicamentos.ConsoleApp.ModuloMedicamentos;
 using ControleMedicamentos.ConsoleApp.Utilidades;
 
-namespace ControleDeMedicamentos.ConsoleApp.ModuloEstoque;
+namespace ControleMedicamentos.ConsoleApp.ModuloEstoque;
 
 [JsonPolymorphic(TypeDiscriminatorPropertyName = "Tipo")]
 [JsonDerivedType(typeof(RequisicaoEntrada), (int)TipoRequisicao.Entrada)]
+[JsonDerivedType(typeof(RequisicaoSaida), (int)TipoRequisicao.Saida)]
+
 public abstract class RequisicaoBase
 {
     public string Id { get; set; } = GeradorIds.GerarIdCurto();

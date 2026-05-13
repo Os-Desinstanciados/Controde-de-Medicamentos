@@ -9,37 +9,37 @@ namespace ControleMedicamentos.ConsoleApp.Utilidades;
 
 public class TelaPrincipal
 {
-    private readonly IRepositorio<Fornecedor> repositorioFornecedor;
-    private readonly IRepositorio<Paciente> repositorioPaciente;
-    private readonly IRepositorio<Medicamento> repositorioMedicamento;
-    private readonly IRepositorio<Funcionario> repositorioFuncionario;
-    private readonly IRepositorioRequisicao repositorioRequisicao;
+  private readonly IRepositorio<Fornecedor> repositorioFornecedor;
+  private readonly IRepositorio<Paciente> repositorioPaciente;
+  private readonly IRepositorio<Medicamento> repositorioMedicamento;
+  private readonly IRepositorio<Funcionario> repositorioFuncionario;
+  private readonly IRepositorioRequisicao repositorioRequisicao;
 
-    public TelaPrincipal(IRepositorio<Paciente> repositorioPaciente,
-    IRepositorio<Fornecedor> repositorioFornecedor,
-    IRepositorio<Medicamento> repositorioMedicamento,
-    IRepositorio<Funcionario> repositorioFuncionario,
-    IRepositorioRequisicao repositorioRequisicao
-    )
-    {
-        this.repositorioPaciente = repositorioPaciente;
-        this.repositorioFornecedor = repositorioFornecedor;
-        this.repositorioMedicamento = repositorioMedicamento;
-        this.repositorioFuncionario = repositorioFuncionario;
-        this.repositorioRequisicao = repositorioRequisicao;
-    }
+  public TelaPrincipal(IRepositorio<Paciente> repositorioPaciente,
+  IRepositorio<Fornecedor> repositorioFornecedor,
+  IRepositorio<Medicamento> repositorioMedicamento,
+  IRepositorio<Funcionario> repositorioFuncionario,
+  IRepositorioRequisicao repositorioRequisicao
+  )
+  {
+    this.repositorioPaciente = repositorioPaciente;
+    this.repositorioFornecedor = repositorioFornecedor;
+    this.repositorioMedicamento = repositorioMedicamento;
+    this.repositorioFuncionario = repositorioFuncionario;
+    this.repositorioRequisicao = repositorioRequisicao;
+  }
 
     public ITelaOpcoes? ApresentarMenuOpcoesPrincipal()
     {
-        //Console.Clear();
+        Console.Clear();
         Console.WriteLine("---------------------------------");
         Console.WriteLine("Controle de Medicamentos");
         Console.WriteLine("---------------------------------");
         Console.WriteLine("1 - Gerenciar Pacientes");
         Console.WriteLine("2 - Gestão de Fornecedores");
         Console.WriteLine("3 - Gestão de Medicamentos");
-        Console.WriteLine("4 - Gestão de Funcionarios");
-        Console.WriteLine("5 - Gestão de Estoque");
+        Console.WriteLine("4 - Gestão de Funcionarios"); 
+        Console.WriteLine("5 - Gestão de Estoque");       
         Console.WriteLine("S - Sair");
         Console.WriteLine("---------------------------------");
         Console.Write("> ");
@@ -65,7 +65,7 @@ public class TelaPrincipal
                 repositorioMedicamento,
                 repositorioPaciente
             );
-        }
+        }        
 
         return null;
     }

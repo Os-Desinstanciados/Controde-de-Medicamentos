@@ -1,8 +1,6 @@
-using System;
 using System.Security.Cryptography;
 
 namespace ControleMedicamentos.ConsoleApp.Utilidades;
-
 
 public static class GeradorIds
 {

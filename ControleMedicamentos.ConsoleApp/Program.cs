@@ -6,7 +6,7 @@ using ControleMedicamentos.ConsoleApp.ModuloFornecedores;
 using ControleMedicamentos.ConsoleApp.Utilidades;
 using ControleMedicamentos.ConsoleApp.ModuloMedicamentos;
 using ControleMedicamentos.ConsoleApp.ModuloFuncionarios;
-using ControleMedicamentos.ConsoleApp.ModuloEstoque;
+
 
 ContextoJson contexto = new ContextoJson();
 
@@ -31,7 +31,7 @@ TelaPrincipal telaPrincipal = new TelaPrincipal(
     repositorioFornecedor,
     repositorioMedicamento,
     repositorioFuncionario,
-    repositorioRequisicao
+    repositorioRequisicao    
 );
 
 while (true)
