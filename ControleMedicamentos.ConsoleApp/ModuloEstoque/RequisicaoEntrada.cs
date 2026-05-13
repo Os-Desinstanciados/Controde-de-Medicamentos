@@ -1,5 +1,4 @@
 using System;
-using ControleDeMedicamentos.ConsoleApp.ModuloEstoque;
 using ControleMedicamentos.ConsoleApp.ModuloFuncionarios;
 using ControleMedicamentos.ConsoleApp.ModuloMedicamentos;
 
